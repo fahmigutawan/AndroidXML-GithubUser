@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="github_green">#2dba4e</color>
+    <color name="github_black">#2b3137</color>
+    <color name="github_accent">#f2c35c</color>
 </resources>
