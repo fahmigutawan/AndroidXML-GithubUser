@@ -23,22 +23,31 @@
                 app:titleTextColor="@color/white" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/fragment_list_user_search_layout"
+                android:id="@+id/fragment_listuser_search_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="Username"
                 android:padding="16dp"
-                app:boxBackgroundColor="@color/white"
+                android:textColorHint="@color/white"
                 app:endIconDrawable="@drawable/ic_search"
                 app:endIconMode="custom"
                 app:placeholderText="Masukkan Username"
-                app:placeholderTextColor="@color/github_black">
+                app:placeholderTextColor="@color/white">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/fragment_list_user_search_input"
+                    android:id="@+id/fragment_listuser_search_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionSearch"
+                    android:imeActionLabel="search"
                     android:textColor="@color/white" />
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_listuser_fragmentcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
