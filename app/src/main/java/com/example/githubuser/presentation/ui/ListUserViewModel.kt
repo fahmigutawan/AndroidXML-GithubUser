@@ -1,15 +1,13 @@
-package com.example.githubuser.presentation.list_user
+package com.example.githubuser.presentation.ui
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.githubuser.data.Repository
-import com.example.githubuser.model.UserModel
 import com.example.githubuser.model.search.SearchModel
 import com.example.githubuser.util.Resource
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class ListUserViewModel : ViewModel() {

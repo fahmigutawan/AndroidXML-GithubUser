@@ -6,6 +6,6 @@
     app:startDestination="@id/listUserFragment">
     <fragment
         android:id="@+id/listUserFragment"
-        android:name="com.example.githubuser.presentation.list_user.ListUserFragment"
+        android:name="com.example.githubuser.presentation.ui.ListUserFragment"
         android:label="ListUserFragment" />
 </navigation>
