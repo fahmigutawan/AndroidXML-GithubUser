@@ -1,4 +1,4 @@
-package com.example.githubuser.presentation.adapter
+package com.example.githubuser.presentation.adapter.list_user
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,19 +1,21 @@
-package com.example.githubuser.presentation.ui
+package com.example.githubuser.presentation.ui.list_user
 
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.example.githubuser.R
 import com.example.githubuser.databinding.FragmentListuserBinding
-import com.example.githubuser.presentation.adapter.ListUserAdapter
-import com.example.githubuser.presentation.adapter.ListUserLoadingAdapter
+import com.example.githubuser.presentation.adapter.list_user.ListUserAdapter
+import com.example.githubuser.presentation.adapter.list_user.ListUserLoadingAdapter
 import com.example.githubuser.util.Resource
 import kotlinx.coroutines.launch
 
@@ -32,7 +34,14 @@ class ListUserFragment : Fragment(R.layout.fragment_listuser) {
         super.onViewCreated(view, savedInstanceState)
 
         val viewModel by viewModels<ListUserViewModel>()
-        val listAdapter = ListUserAdapter()
+        val listAdapter = ListUserAdapter(
+            onItemClick = { username ->
+                findNavController().navigate(
+                    ListUserFragmentDirections
+                        .actionListUserFragmentToDetailUserFragment(username)
+                )
+            }
+        )
         val listLoadingAdapter = ListUserLoadingAdapter()
 
         listUserBinding
@@ -89,11 +98,12 @@ class ListUserFragment : Fragment(R.layout.fragment_listuser) {
 
         listUserBinding
             .fragmentListuserSearchInput
-            .setOnKeyListener { _, keyCode, _ ->
-                if (keyCode == KeyEvent.KEYCODE_SEARCH) {
+            .setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
                     viewModel.searchByQuery(listUserBinding.fragmentListuserSearchInput.text.toString())
-                    true
-                } else false
+                }
+
+                return@setOnEditorActionListener false
             }
     }
 

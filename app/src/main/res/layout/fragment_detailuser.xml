@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:paddingVertical="64dp"
+            android:paddingHorizontal="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/github_black">
+            <include
+                android:id="@+id/fragment_detailuser_information_loading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/detailuser_information_loading"
+                android:visibility="visible"/>
+            <include
+                android:id="@+id/fragment_detailuser_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/detailuser_information"
+                android:visibility="gone"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

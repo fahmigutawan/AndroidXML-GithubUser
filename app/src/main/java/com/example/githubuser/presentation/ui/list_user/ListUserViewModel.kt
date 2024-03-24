@@ -1,4 +1,4 @@
-package com.example.githubuser.presentation.ui
+package com.example.githubuser.presentation.ui.list_user
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -12,20 +12,12 @@ import kotlinx.coroutines.launch
 
 class ListUserViewModel : ViewModel() {
     val searchResult = MutableStateFlow<Resource<SearchModel?>>(Resource.NotLoadedYet())
-    val searchResultLiveData = MutableLiveData<SearchModel>()
 
     fun searchByQuery(query: String){
         viewModelScope.launch {
             Repository.searchByQuery(query).collect{
+
                 searchResult.value = it
-
-                Log.e("CHANGED", it.toString())
-
-                if(it is Resource.Success){
-                    it.data?.let {
-                        searchResultLiveData.postValue(it)
-                    }
-                }
             }
         }
     }
